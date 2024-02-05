@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace TodoExampleTeam {
-    internal class Todo : ITodo {
+    public class Todo : ITodo {
         string Title;
         bool isComplete;
         string Description;
