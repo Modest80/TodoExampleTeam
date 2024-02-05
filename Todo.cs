@@ -58,7 +58,12 @@ namespace TodoExampleTeam {
             Title=title;
         }
         public override string ToString() {
-            return $"{Title}";
+            return $"Название дела: {Title}\n" +
+                 $"Описание дела: {Description}\n" +
+                 $"Сроки: {DateStart} - {DateEnd}\n" +
+                 $"Автор: {Giver}\n" + 
+                 $"Исполнитель: {Taker} \n" +
+                 $"Статус:" + (isComplete ? "Выполнено" : "Не выполнено") + "\n";
         }
     }
 }
