@@ -5,17 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace TodoExampleTeam {
-    internal class Person : IPerson {
+    public class Person : IPerson {
         public string Name;
         public string Position;
 
-        public void SetName(string name) { 
-        
+        public void SetName(string name) {
+            Name = name;
         }
 
         public void SetPosition(string position) {
-
-
+            Position = position;
         }
     }
 
