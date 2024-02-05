@@ -4,6 +4,9 @@ namespace TodoExampleTeam {
     public class TodoList {
         private List<Todo> _todos;
         private List<IPerson> _person;
+        public void ShowTodos() {
+
+        }
         public bool ContainPerson(IPerson person) {
             return false;
         }
