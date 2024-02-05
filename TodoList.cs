@@ -7,24 +7,33 @@ namespace TodoExampleTeam {
         private List<Todo> _todos;
         private List<IPerson> _person;
         public void ShowTodos() {
-
+            int i = 1;
+            foreach (var todo in _todos) {
+                Console.WriteLine($"{i++}. {todo}");
+            }
         }
         public bool ContainPerson(IPerson person) {
-            return false;
+            return _person.Contains(person);
         }
         public bool AddPerson(IPerson person) {
-            return false;
+            _person.Add(person);
+            return true;
         }
         public bool RemovePerson(IPerson person) {
-            return false;
+            return _person.Remove(person);
         }
         public bool AddTodo(Todo todo) {
-            return false;
+            _todos.Add(todo);
+            return true;
         }
         public bool RemoveTodo(Todo todo) {
-            return false;
+            return _todos.Remove(todo);
         }
         public bool SaveList(string path) {
+            // сохранение дел
+
+
+            // сохранение персон
             return false;
         }
         /// <summary>
@@ -35,6 +44,9 @@ namespace TodoExampleTeam {
         /// </param>
         /// <returns></returns>
         public bool LoadList(string path) {
+            // загрузка персон
+
+            // загрузка дел
             return false;
         }
     }

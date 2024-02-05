@@ -31,16 +31,21 @@ namespace TodoExampleTeam {
                 key = Console.ReadKey();
                 switch (key.Key) {
                     case ConsoleKey.D1:
-                        //
+                        todos.ShowTodos();
                         break;
                     case ConsoleKey.D2:
-                        //
+                        var todo = new Todo();
+                        //Логика заполнения дела
+                        todos.AddTodo(todo);
                         break;
                     case ConsoleKey.D3:
-                        //
+                        //Удалить дело
                         break;
                     case ConsoleKey.D4:
-                        //
+                        //Найти дело:
+                        // по названию,
+                        // по автору/исполнителю
+                        // по дате начала/окончания
                         break;
                 }                
             }
