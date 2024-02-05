@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace TodoExampleTeam {
     public interface IPerson {
-        public void SetName(string name);
-        public void SetPosition(string position);
+        void SetName(string name);
+        void SetPosition(string position);
 
     }
 
