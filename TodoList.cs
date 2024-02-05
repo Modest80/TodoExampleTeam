@@ -22,6 +22,13 @@ namespace TodoExampleTeam {
         public bool SaveList(string path) {
             return false;
         }
+        /// <summary>
+        /// Загружает все дела
+        /// </summary>
+        /// <param name="path">
+        /// Путь к файлу с делами
+        /// </param>
+        /// <returns></returns>
         public bool LoadList(string path) {
             return false;
         }
