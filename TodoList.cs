@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace TodoExampleTeam {
+    [Serializable]
     public class TodoList {
         private List<Todo> _todos;
         private List<IPerson> _person;

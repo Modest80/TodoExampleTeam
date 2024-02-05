@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace TodoExampleTeam {
+    [Serializable]
     public class Person : IPerson {
         public string Name;
         public string Position;
