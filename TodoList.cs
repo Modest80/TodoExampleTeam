@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace TodoExampleTeam {
     public class TodoList {
         private List<Todo> _todos;
+        private List<IPerson> _person;
         public bool AddTodo(Todo todo) {
             return false;
         }
@@ -17,7 +14,7 @@ namespace TodoExampleTeam {
             return false;
         }
         public bool LoadList(string path) {
-            return false; 
+            return false;
         }
     }
 }
