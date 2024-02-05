@@ -5,6 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace TodoExampleTeam {
-    internal class TodoList {
+    public class TodoList {
+        private List<Todo> _todos;
+        public bool AddTodo(Todo todo) {
+            return false;
+        }
+        public bool RemoveTodo(Todo todo) {
+            return false;
+        }
+        public bool SaveList(string path) {
+            return false;
+        }
+        public bool LoadList(string path) {
+            return false; 
+        }
     }
 }
