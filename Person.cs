@@ -6,5 +6,7 @@ using System.Threading.Tasks;
 
 namespace TodoExampleTeam {
     internal class Person {
+        public string Name;
+        public string Position;
     }
 }
