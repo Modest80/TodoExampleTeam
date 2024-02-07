@@ -31,17 +31,27 @@ namespace TodoExampleTeam {
                 key = Console.ReadKey();
                 switch (key.Key) {
                     case ConsoleKey.D1:
+                        //Общий список дел
                         todos.ShowTodos();
                         break;
                     case ConsoleKey.D2:
-                        var todo = new Todo();
-                        //Логика заполнения дела
-                        todos.AddTodo(todo);
+                        //Мой список дел
+                        todos.ShowTodos(user);
                         break;
                     case ConsoleKey.D3:
-                        //Удалить дело
+                        var todo = new Todo();
+                        //Логика заполнения дела
+                        //Название дела
+                        Console.WriteLine("Название дела");
+                        string title = Console.ReadLine();
+                        //Описание дела
+                        
+                        todos.AddTodo(todo);
                         break;
                     case ConsoleKey.D4:
+                        //Удалить дело
+                        break;
+                    case ConsoleKey.D5:
                         //Найти дело:
                         // по названию,
                         // по автору/исполнителю
@@ -55,10 +65,11 @@ namespace TodoExampleTeam {
         }
         public static void ShowMenu() {
             Console.WriteLine(" ---- Список дел -----");
-            Console.WriteLine("\t1.Список дел");
-            Console.WriteLine("\t2.Добавить дело");
-            Console.WriteLine("\t3.Удалить дело");
-            Console.WriteLine("\t4.Найти дело\n");
+            Console.WriteLine("\t1.Общий список дел");
+            Console.WriteLine("\t2.Мой список дел");
+            Console.WriteLine("\t3.Добавить дело");
+            Console.WriteLine("\t4.Удалить дело");
+            Console.WriteLine("\t5.Найти дело\n");
             Console.WriteLine("\tESC.Выход");
         }
     }

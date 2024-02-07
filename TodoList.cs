@@ -4,11 +4,15 @@ using System.Collections.Generic;
 namespace TodoExampleTeam {
     [Serializable]
     public class TodoList {
-        private List<Todo> _todos;
+        public List<ITodo> Todos { get; private set; }
         private List<IPerson> _person;
+        public TodoList() {
+            Todos = new List<ITodo>();
+            _person = new List<IPerson>();
+        }
         public void ShowTodos() {
             int i = 1;
-            foreach (var todo in _todos) {
+            foreach (var todo in Todos) {
                 Console.WriteLine($"{i++}. {todo}");
             }
         }
@@ -22,12 +26,12 @@ namespace TodoExampleTeam {
         public bool RemovePerson(IPerson person) {
             return _person.Remove(person);
         }
-        public bool AddTodo(Todo todo) {
-            _todos.Add(todo);
+        public bool AddTodo(ITodo todo) {
+            Todos.Add(todo);
             return true;
         }
-        public bool RemoveTodo(Todo todo) {
-            return _todos.Remove(todo);
+        public bool RemoveTodo(ITodo todo) {
+            return Todos.Remove(todo);
         }
         public bool SaveList(string path) {
             // сохранение дел
