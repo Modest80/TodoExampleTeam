@@ -10,7 +10,6 @@ namespace TodoExampleTeam {
     public class Todo : AbstractTodo {
 
         public Todo() {
-
         }
         public Todo(string title, bool isComplete, 
             string description, DateTime dateStart, 
