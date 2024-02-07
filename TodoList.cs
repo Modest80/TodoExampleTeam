@@ -16,6 +16,14 @@ namespace TodoExampleTeam {
                 Console.WriteLine($"{i++}. {todo}");
             }
         }
+        public void ShowTodos(Person user) {
+            int i = 1;
+            foreach (var todo in Todos) {
+                if (user.Name == todo.Giver && user.Name == todo.Taker) {
+                Console.WriteLine($"{i++}. {todo}");
+                }
+            }
+        }
         public bool ContainPerson(IPerson person) {
             return _person.Contains(person);
         }
