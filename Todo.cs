@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 namespace TodoExampleTeam {
     [Serializable]
     public class Todo : ITodo {
-        string Title;
-        bool isComplete;
-        string Description;
-        DateTime DateStart;
-        DateTime DateEnd;
-        IPerson Giver;
-        IPerson Taker;
+        public string Title { get; set; }
+        public bool isComplete { get; set; }
+        public string Description { get; set; }
+        public DateTime DateStart { get; set; }
+        public DateTime DateEnd { get; set; }
+        public IPerson Giver { get; set; }
+        public IPerson Taker { get; set; }
 
 
         public Todo() {
