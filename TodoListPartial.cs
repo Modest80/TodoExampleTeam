@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace TodoExampleTeam {
     public partial class TodoList {
         public bool SaveList(string path) {
-            // сохранение дел
-
-
-            // сохранение персон
+            string json = JsonSerializer.Serialize(Todos);
+            File.WriteAllText(path, json);
             return false;
         }
         /// <summary>
@@ -21,9 +21,7 @@ namespace TodoExampleTeam {
         /// </param>
         /// <returns></returns>
         public bool LoadList(string path) {
-            // загрузка персон
-
-            // загрузка дел
+            Todos = JsonSerializer.Deserialize<List<AbstractTodo>>(path);
             return false;
         }
 
