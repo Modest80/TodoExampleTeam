@@ -64,6 +64,14 @@ namespace TodoExampleTeam {
                         // по автору/исполнителю
                         // по дате начала/окончания
                         break;
+                    case ConsoleKey.D6:
+                        //Взять дело в работу
+                        todos.ShowOpenTodos();
+                        break;
+                    case ConsoleKey.D7:
+                        //Завершить дело
+                        todos.ShowWorkTodos(user);
+                        break;
                 }                
             }
 
@@ -77,6 +85,8 @@ namespace TodoExampleTeam {
             Console.WriteLine("\t3.Добавить дело");
             Console.WriteLine("\t4.Удалить дело");
             Console.WriteLine("\t5.Найти дело\n");
+            Console.WriteLine("\t6.Взять дело\n");
+            Console.WriteLine("\t7.Завершить дело\n");
             Console.WriteLine("\tESC.Выход");
         }
     }
