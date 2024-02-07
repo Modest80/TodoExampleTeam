@@ -42,10 +42,14 @@ namespace TodoExampleTeam {
                         var todo = new Todo();
                         //Логика заполнения дела
                         //Название дела
-                        Console.WriteLine("Название дела");
+                        Console.Write("Название дела: ");
                         string title = Console.ReadLine();
+                        Console.Write("Описание дела: ");
+                        string description=Console.ReadLine();
+                        todo.SetDescription(description);
+                        todo.SetTitle(title);
                         //Описание дела
-                        
+
                         todos.AddTodo(todo);
                         break;
                     case ConsoleKey.D4:
