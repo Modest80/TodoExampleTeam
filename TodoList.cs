@@ -4,11 +4,11 @@ using System.Collections.Generic;
 namespace TodoExampleTeam {
     [Serializable]
     public class TodoList {
-        public List<ITodo> Todos { get; private set; }
-        private List<IPerson> _person;
+        public List<AbstractTodo> Todos { get; private set; }
+        private List<AbstractPerson> _person;
         public TodoList() {
-            Todos = new List<ITodo>();
-            _person = new List<IPerson>();
+            Todos = new List<AbstractTodo>();
+            _person = new List<AbstractPerson>();
         }
         public void ShowTodos() {
             int i = 1;
@@ -16,29 +16,30 @@ namespace TodoExampleTeam {
                 Console.WriteLine($"{i++}. {todo}");
             }
         }
-        public void ShowTodos(Person user) {
+        public void ShowTodos(AbstractPerson user) {
             int i = 1;
             foreach (var todo in Todos) {
-                if (user.Name == todo.Giver && user.Name == todo.Taker) {
+                if (user.Name == todo.Giver.Name && 
+                    user.Name == todo.Taker.Name) {
                 Console.WriteLine($"{i++}. {todo}");
                 }
             }
         }
-        public bool ContainPerson(IPerson person) {
+        public bool ContainPerson(AbstractPerson person) {
             return _person.Contains(person);
         }
-        public bool AddPerson(IPerson person) {
+        public bool AddPerson(AbstractPerson person) {
             _person.Add(person);
             return true;
         }
-        public bool RemovePerson(IPerson person) {
+        public bool RemovePerson(AbstractPerson person) {
             return _person.Remove(person);
         }
-        public bool AddTodo(ITodo todo) {
+        public bool AddTodo(AbstractTodo todo) {
             Todos.Add(todo);
             return true;
         }
-        public bool RemoveTodo(ITodo todo) {
+        public bool RemoveTodo(AbstractTodo todo) {
             return Todos.Remove(todo);
         }
         public bool SaveList(string path) {

@@ -7,20 +7,14 @@ using System.Threading.Tasks;
 
 namespace TodoExampleTeam {
     [Serializable]
-    public class Todo : ITodo {
-        public string Title { get; set; }
-        public bool isComplete { get; set; }
-        public string Description { get; set; }
-        public DateTime DateStart { get; set; }
-        public DateTime DateEnd { get; set; }
-        public IPerson Giver { get; set; }
-        public IPerson Taker { get; set; }
-
+    public class Todo : AbstractTodo {
 
         public Todo() {
 
         }
-        public Todo(string title, bool isComplete, string description, DateTime dateStart, DateTime dateEnd, IPerson giver, IPerson taker) {
+        public Todo(string title, bool isComplete, 
+            string description, DateTime dateStart, 
+            DateTime dateEnd, AbstractPerson giver, AbstractPerson taker) {
             Title = title;
             this.isComplete = isComplete;
             Description = description;
@@ -38,7 +32,7 @@ namespace TodoExampleTeam {
             DateEnd = end;
         }
 
-        public void SetGiver(IPerson giver) {
+        public void SetGiver(AbstractPerson giver) {
             Giver = giver;
         }
 
@@ -50,7 +44,7 @@ namespace TodoExampleTeam {
             return false;
         }
 
-        public void SetTaker(IPerson taker) {
+        public void SetTaker(AbstractPerson taker) {
             Taker = taker;
         }
 

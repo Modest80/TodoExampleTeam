@@ -5,7 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace TodoExampleTeam {
-    public interface ITodo {
-       
+    public class AbstractPerson {
+        public string Name { get; set; }
+        public string Position { get; set; }
     }
 }
