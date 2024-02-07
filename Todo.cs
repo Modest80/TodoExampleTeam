@@ -58,6 +58,9 @@ namespace TodoExampleTeam {
                  $"Исполнитель: {Taker} \n" +
                  $"Статус:" + (isComplete ? "Выполнено" : "Не выполнено") + "\n";
         }
+        public string OneLine() {
+            // Title - Status
+        }
     }
 }
 
