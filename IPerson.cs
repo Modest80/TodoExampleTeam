@@ -5,9 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace TodoExampleTeam {
-    public interface IPerson {
-        void SetName(string name);
-        void SetPosition(string position);
+    public interface IPerson {      
 
     }
 
