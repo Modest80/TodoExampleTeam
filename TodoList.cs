@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace TodoExampleTeam {
     [Serializable]
-    public class TodoList {
+    public partial class TodoList {
         public List<AbstractTodo> Todos { get; private set; }
         private List<AbstractPerson> _person;
         public TodoList() {
@@ -19,9 +19,10 @@ namespace TodoExampleTeam {
         public void ShowTodos(AbstractPerson user) {
             int i = 1;
             foreach (var todo in Todos) {
-                if (user.Name == todo.Giver.Name && 
-                    user.Name == todo.Taker.Name) {
-                Console.WriteLine($"{i++}. {todo}");
+                if (user.Name == todo.Giver.Name ||
+                    (todo.Taker != null && 
+                     user.Name == todo.Taker.Name)) {
+                    Console.WriteLine($"{i++}. {todo}");
                 }
             }
         }
@@ -41,26 +42,6 @@ namespace TodoExampleTeam {
         }
         public bool RemoveTodo(AbstractTodo todo) {
             return Todos.Remove(todo);
-        }
-        public bool SaveList(string path) {
-            // сохранение дел
-
-
-            // сохранение персон
-            return false;
-        }
-        /// <summary>
-        /// Загружает все дела
-        /// </summary>
-        /// <param name="path">
-        /// Путь к файлу с делами
-        /// </param>
-        /// <returns></returns>
-        public bool LoadList(string path) {
-            // загрузка персон
-
-            // загрузка дел
-            return false;
-        }
+        }        
     }
 }

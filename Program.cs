@@ -29,27 +29,30 @@ namespace TodoExampleTeam {
                 Console.Clear();
                 ShowMenu();
                 key = Console.ReadKey();
+                Console.Clear();
                 switch (key.Key) {
                     case ConsoleKey.D1:
                         //Общий список дел
                         todos.ShowTodos();
+                        Console.ReadKey();
                         break;
                     case ConsoleKey.D2:
                         //Мой список дел
                         todos.ShowTodos(user);
+                        Console.ReadKey();
                         break;
                     case ConsoleKey.D3:
-                        var todo = new Todo();
                         //Логика заполнения дела
                         //Название дела
                         Console.Write("Название дела: ");
                         string title = Console.ReadLine();
                         Console.Write("Описание дела: ");
                         string description=Console.ReadLine();
-                        todo.SetDescription(description);
-                        todo.SetTitle(title);
-                        //Описание дела
-
+                        var todo = new Todo() {
+                            Title = title,
+                            Description = description,
+                            Giver = user
+                        };
                         todos.AddTodo(todo);
                         break;
                     case ConsoleKey.D4:

@@ -15,6 +15,9 @@ namespace TodoExampleTeam {
         public void SetPosition(string position) {
             Position = position;
         }
+        public override string ToString() {
+            return $"{Name} ({Position})";
+        }
     }
 
 }
