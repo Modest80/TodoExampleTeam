@@ -16,7 +16,7 @@ namespace TodoExampleTeam {
                 Console.WriteLine($"{i++}. {todo}");
             }
         }
-        public void ShowTodos(IPerson user) {
+        public void ShowTodos(Person user) {
             int i = 1;
             foreach (var todo in Todos) {
                 if (user.Name == todo.Giver && user.Name == todo.Taker) {
