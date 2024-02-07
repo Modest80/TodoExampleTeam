@@ -56,10 +56,11 @@ namespace TodoExampleTeam {
                  $"Сроки: {DateStart} - {DateEnd}\n" +
                  $"Автор: {Giver}\n" + 
                  $"Исполнитель: {Taker} \n" +
-                 $"Статус:" + (isComplete ? "Выполнено" : "Не выполнено") + "\n";
+                 $"Статус: " + (isComplete ? "Выполнено" : "Не выполнено") + "\n";
         }
         public string OneLine() {
             // Title - Status
+            return Title +" - "+ (isComplete ? "Выполнено" : "Не выполнено");
         }
     }
 }
