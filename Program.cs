@@ -70,7 +70,7 @@ namespace TodoExampleTeam {
                         break;
                     case ConsoleKey.D7:
                         //Завершить дело
-                        todos.ShowWorkTodos(user);
+                        //todos.ShowWorkTodos(user);
                         break;
                 }                
             }
