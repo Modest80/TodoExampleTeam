@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TodoExampleTeam {
     [Serializable]
-    public class Todo : AbstractTodo {
+    public class Todo : AbstractTodo, ITodo {
 
         public Todo() {
         }

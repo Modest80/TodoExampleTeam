@@ -22,7 +22,11 @@ namespace TodoExampleTeam {
         /// <returns></returns>
         public bool LoadList(string path) {
             string Json = File.ReadAllText(path);
-            Todos = JsonSerializer.Deserialize<List<AbstractTodo>>(Json);
+            try {
+                Todos = JsonSerializer.Deserialize<List<AbstractTodo>>(Json);
+            } catch (Exception ex) {
+                Console.WriteLine($"Ошибка: {ex.Message}");
+            }
             return false;
         }
 

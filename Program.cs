@@ -14,7 +14,7 @@ namespace TodoExampleTeam {
             Console.Write("Ваше имя: ");
             username = Console.ReadLine();
             TodoList todos = new TodoList();
-            todos.LoadList(filepath);
+            //todos.LoadList(filepath);
             Person user = new Person() {
                 Name = username,
             };

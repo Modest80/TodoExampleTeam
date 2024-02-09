@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TodoExampleTeam {
     [Serializable]
-    public class Person : AbstractPerson {
+    public class Person : AbstractPerson, IPerson {
         
         public void SetName(string name) {
             Name = name;

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace TodoExampleTeam {
     [Serializable]
     public partial class TodoList {
-        public List<AbstractTodo> Todos { get; private set; }
+        public List<AbstractTodo> Todos { get; protected set; }
         private List<AbstractPerson> _person;
         public TodoList() {
             Todos = new List<AbstractTodo>();
