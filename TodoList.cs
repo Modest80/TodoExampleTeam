@@ -26,6 +26,15 @@ namespace TodoExampleTeam {
                 }
             }
         }
+        public void ShowOpenTodos() {
+            int i = 1;
+            foreach (var todo in Todos) {
+                if (todo.isComplete == false && todo.Taker == null) {
+                    Console.WriteLine($"{i++}. {todo}");
+                }
+            }
+        }
+
         public bool ContainPerson(AbstractPerson person) {
             return _person.Contains(person);
         }
