@@ -21,7 +21,8 @@ namespace TodoExampleTeam {
         /// </param>
         /// <returns></returns>
         public bool LoadList(string path) {
-            Todos = JsonSerializer.Deserialize<List<AbstractTodo>>(path);
+            string Json = File.ReadAllText(path);
+            Todos = JsonSerializer.Deserialize<List<AbstractTodo>>(Json);
             return false;
         }
 
