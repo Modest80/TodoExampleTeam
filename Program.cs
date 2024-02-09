@@ -10,6 +10,7 @@ namespace TodoExampleTeam {
         public const string filepath = "todos.json";
         static void Main(string[] args) {
             string username = "";
+            
             Console.Write("Ваше имя: ");
             username = Console.ReadLine();
             TodoList todos = new TodoList();
@@ -66,11 +67,11 @@ namespace TodoExampleTeam {
                         break;
                     case ConsoleKey.D6:
                         //Взять дело в работу
-                        todos.ShowOpenTodos();
+                        //todos.ShowOpenTodos();
                         break;
                     case ConsoleKey.D7:
                         //Завершить дело
-                        todos.ShowWorkTodos(user);
+                        //todos.ShowWorkTodos(user);
                         break;
                 }                
             }
