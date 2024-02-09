@@ -5,8 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace TodoExampleTeam {
-    public interface IPerson {      
-
+    public interface IPerson {
     }
 
 }
