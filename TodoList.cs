@@ -89,6 +89,7 @@ namespace TodoExampleTeam {
             if(todoNumber>=1 && todoNumber<=Todos.Count+1) {
                 if (Todos[todoNumber - 1].Taker == null) {
                     Todos[todoNumber-1].Taker = user;
+                    Todos[todoNumber-1].DateStart = DateTime.Now;
                 }
             }
         }
