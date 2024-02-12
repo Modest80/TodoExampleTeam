@@ -32,7 +32,7 @@ namespace TodoExampleTeam {
             int i = 1;
             foreach (var todo in Todos) {
                 if (todo.isComplete == false && todo.Taker == null) {
-                    Console.WriteLine($"{i++}. {todo}");
+                    Console.WriteLine($"\t{i++}. {todo.Title}");
                 }
             }
         }

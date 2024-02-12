@@ -78,7 +78,7 @@ public class AbsTodoConvertor : JsonConverter<AbstractTodo> {
 
                 return new Todo(title, isCom, desc, DateS, DateE, giver, new Person(takerName, takerPos, takerPass));
             }
-            return new Todo(title, isCom, desc, DateS, DateE, giver, new Person());
+            return new Todo(title, isCom, desc, DateS, DateE, giver, null);
         }
     }
     public override void Write(Utf8JsonWriter writer, AbstractTodo value, JsonSerializerOptions options) {

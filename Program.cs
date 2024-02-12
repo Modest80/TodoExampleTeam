@@ -82,6 +82,7 @@ namespace TodoExampleTeam {
                         //Взять дело в работу
                         todos.ShowOpenTodos();
                         try {
+                            Console.Write("Номер задачи: ");
                             int todoNumber = Int32.Parse(Console.ReadLine());
                             //todos.TakeTodo(todoNumber, user);
                         } catch { 

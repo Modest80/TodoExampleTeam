@@ -7,9 +7,7 @@ using System.Threading.Tasks;
 namespace TodoExampleTeam {
     [Serializable]
     public class Person : AbstractPerson, IPerson {
-        public Person() : base("","","") {
-
-        }
+        public Person() {}
         public Person(string name,string pos,string pass) : base(name, pos, pass) {
         
         }

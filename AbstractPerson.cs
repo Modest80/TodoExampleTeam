@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TodoExampleTeam {
     public abstract class AbstractPerson {
-
+        protected AbstractPerson() { }
         protected AbstractPerson(string name,string position,string pass) {
             Name = name;
             Position = position;
