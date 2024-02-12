@@ -36,6 +36,14 @@ namespace TodoExampleTeam {
                 }
             }
         }
+        public void ShowWorkTodos(AbstractPerson user) {
+            int i = 1;
+            foreach (var todo in Todos) {
+                if (todo.isComplete == false && todo.Taker == user) {
+                    Console.WriteLine($"\t{i++}. {todo.Title}");
+                }
+            }
+        }
         public bool ContainPerson(AbstractPerson person) {
             foreach (var user in Persons) {
                 if (user.Name == person.Name) {
@@ -90,6 +98,14 @@ namespace TodoExampleTeam {
                 if (Todos[todoNumber - 1].Taker == null) {
                     Todos[todoNumber-1].Taker = user;
                     Todos[todoNumber-1].DateStart = DateTime.Now;
+                }
+            }
+        }
+        public void EndTodo(int todoNumber, AbstractPerson user) {
+            if (todoNumber >= 1 && todoNumber <= Todos.Count + 1) {
+                if (Todos[todoNumber - 1].Taker == user) {
+                    Todos[todoNumber - 1].DateEnd = DateTime.Now;
+                    Todos[todoNumber-1].isComplete = true;
                 }
             }
         }
