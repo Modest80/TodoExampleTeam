@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Text.Json;
 
 namespace TodoExampleTeam {
     [Serializable]
     public partial class TodoList {
-        public List<AbstractTodo> Todos { get; private set; }
-        private List<AbstractPerson> _person;
+        public List<AbstractTodo> Todos { get; protected set; }
+        public List<AbstractPerson> Persons { get; protected set; }
         public TodoList() {
             Todos = new List<AbstractTodo>();
-            _person = new List<AbstractPerson>();
+            Persons = new List<AbstractPerson>();
         }
         public void ShowTodos() {
             int i = 1;
@@ -34,16 +36,20 @@ namespace TodoExampleTeam {
                 }
             }
         }
-
         public bool ContainPerson(AbstractPerson person) {
-            return _person.Contains(person);
+            foreach (var user in Persons) {
+                if (user.Name == person.Name) {
+                    return true;
+                }
+            }
+            return false;
         }
         public bool AddPerson(AbstractPerson person) {
-            _person.Add(person);
+            Persons.Add(person);
             return true;
         }
         public bool RemovePerson(AbstractPerson person) {
-            return _person.Remove(person);
+            return Persons.Remove(person);
         }
         public bool AddTodo(AbstractTodo todo) {
             Todos.Add(todo);
@@ -51,6 +57,33 @@ namespace TodoExampleTeam {
         }
         public bool RemoveTodo(AbstractTodo todo) {
             return Todos.Remove(todo);
-        }        
+        }
+        public bool SavePersons(string filepath) {
+            string json = JsonSerializer.Serialize(Persons);
+            File.WriteAllText(filepath, json);
+            return true;
+        }
+        public bool LoadPersons(string filepath) {
+            if (!File.Exists(filepath)) { return false; }
+            string Json = File.ReadAllText(filepath);
+            List<Person> persons = null;
+            try {
+                persons = JsonSerializer.Deserialize<List<Person>>(Json);
+                Persons.AddRange(persons);
+            } catch (Exception ex) {
+                Console.WriteLine($"Ошибка: {ex.Message}");
+            }
+            return false;
+        }
+        public bool CheckPerson(AbstractPerson user) { 
+            foreach (var person in Persons) {
+                Console.WriteLine($"user:{user.Password} - person:{person.Password}");
+                if (user.Name == person.Name && 
+                    user.Password == person.Password) { 
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

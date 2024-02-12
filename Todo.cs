@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace TodoExampleTeam {
     [Serializable]
-    public class Todo : AbstractTodo {
+    public class Todo : AbstractTodo, ITodo {
 
-        public Todo() {
+        public Todo() : base("",false,"",new DateTime(),new DateTime(), null,null) {
         }
         public Todo(string title, bool isComplete, 
             string description, DateTime dateStart, 
-            DateTime dateEnd, AbstractPerson giver, AbstractPerson taker) {
+            DateTime dateEnd, AbstractPerson giver, AbstractPerson taker) : base(title,isComplete,description,dateStart,dateEnd,giver,taker) {
             Title = title;
             this.isComplete = isComplete;
             Description = description;
