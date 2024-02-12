@@ -85,5 +85,12 @@ namespace TodoExampleTeam {
             }
             return false;
         }
+        public void TakeTodo(int todoNumber, AbstractPerson user) {
+            if(todoNumber>=1 && todoNumber<=Todos.Count+1) {
+                if (Todos[todoNumber - 1].Taker == null) {
+                    Todos[todoNumber-1].Taker = user;
+                }
+            }
+        }
     }
 }
