@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Runtime.InteropServices;
 using System.Text.Json;
 
 namespace TodoExampleTeam {
@@ -39,7 +40,8 @@ namespace TodoExampleTeam {
         public void ShowWorkTodos(AbstractPerson user) {
             int i = 1;
             foreach (var todo in Todos) {
-                if (todo.isComplete == false && todo.Taker == user) {
+                if (todo.isComplete == false && todo.Taker != null 
+                    && todo.Taker.Name == user.Name) {
                     Console.WriteLine($"\t{i++}. {todo.Title}");
                 }
             }
@@ -85,7 +87,7 @@ namespace TodoExampleTeam {
         }
         public bool CheckPerson(AbstractPerson user) { 
             foreach (var person in Persons) {
-                Console.WriteLine($"user:{user.Password} - person:{person.Password}");
+                //Console.WriteLine($"user:{user.Password} - person:{person.Password}");
                 if (user.Name == person.Name && 
                     user.Password == person.Password) { 
                     return true;
@@ -94,16 +96,27 @@ namespace TodoExampleTeam {
             return false;
         }
         public void TakeTodo(int todoNumber, AbstractPerson user) {
+            int j = 0;
             if(todoNumber>=1 && todoNumber<=Todos.Count+1) {
-                if (Todos[todoNumber - 1].Taker == null) {
-                    Todos[todoNumber-1].Taker = user;
-                    Todos[todoNumber-1].DateStart = DateTime.Now;
+                for (int i = 0; i < Todos.Count; i++) {
+                    if (Todos[i].Taker == null) {
+                        if (j == todoNumber - 1) {
+                            Todos[i].Taker = user;
+                            Todos[i].DateStart = DateTime.Now;
+                            Console.WriteLine("Задача найдена!");
+                            Console.ReadKey();
+                            return;
+                        }
+                        j++;
+                    }
                 }
+                Console.WriteLine("Задача не найдена");
+                Console.ReadKey();
             }
         }
         public void EndTodo(int todoNumber, AbstractPerson user) {
             if (todoNumber >= 1 && todoNumber <= Todos.Count + 1) {
-                if (Todos[todoNumber - 1].Taker == user) {
+                if (Todos[todoNumber - 1].Taker.Name == user.Name) {
                     Todos[todoNumber - 1].DateEnd = DateTime.Now;
                     Todos[todoNumber-1].isComplete = true;
                 }
